@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="html5-qrcode.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+#qr-canvas {
+	border: brown 1px solid;
+}
+</style>
+</head>
+<body>
+	<div id="radio" style="width: 200px"></div>
+	<div id="reader" style="width: 200px; background-color: black; margin: auto;"></div>
+</body>
+</html>
+<script>
+
+	const html5QrCode = new Html5Qrcode("reader", false);
+
+	Html5Qrcode.getCameras().then(devices => {
+
+		if (devices && devices.length) {
+			start(devices);
+		}else{
+			console.log("Error in identify camera");
+			alert("Error in identify camera1");
+		}
+
+	}).catch(err => {
+		console.log("Error in identify camera");
+		alert("Error in identify camera2");
+	});
+
+
+  	function start(devices){
+
+		const config = { fps: 10, qrbox: 100 };
+
+		if(devices.length > 1){
+
+			for (var k=0; k < devices.length; k++) {
+					
+				$('#radio').append(
+					$('<input>').prop({
+						type: 'radio',
+						id: devices[k].id,
+						name: 'contact',
+						value: devices[k].id
+					})
+				).append(
+					$('<label>').prop({
+						for: devices[k].id
+					}).html(devices[k].label)
+				);
+			};
+
+			html5QrCode.start({ deviceId: { exact: devices[1].id} }, config, onScanSuccess,onErrorScan).catch(err => {
+				console.log("Unable to start scanning, error: "+err);
+				alert("Error in identify camera4");
+			});
+			
+		}else{
+
+			html5QrCode.start({ deviceId: { exact: devices[0].id} }, config, onScanSuccess,onErrorScan).catch(err => {
+				console.log("Unable to start scanning, error: "+err);
+				alert("Error in identify camera5");
+			});
+
+		}
+
+	}
+
+	function onScanSuccess(qrCodeMessage) {
+		console.log(qrCodeMessage);
+		alert(qrCodeMessage);
+		html5QrCode.stop();
+		//location.reload();
+	}
+
+	function onErrorScan(err){
+	}
+
+	function stopScan(){
+		html5QrCode.stop();
+	}
+  
+</script>
