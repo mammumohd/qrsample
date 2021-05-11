@@ -57,14 +57,14 @@
 				);
 			};
 
-			html5QrCode.start({ deviceId: { exact: devices[1].id} }, config, onScanSuccess,onErrorScan).catch(err => {
+			html5QrCode.start({ facingMode: { exact: "environment"} }, config, onScanSuccess,onErrorScan).catch(err => {
 				console.log("Unable to start scanning, error: "+err);
 				alert("Error in identify camera4");
 			});
 			
 		}else{
 
-			html5QrCode.start({ deviceId: { exact: devices[0].id} }, config, onScanSuccess,onErrorScan).catch(err => {
+			html5QrCode.start({ facingMode: { exact: "environment"} }, config, onScanSuccess,onErrorScan).catch(err => {
 				console.log("Unable to start scanning, error: "+err);
 				alert("Error in identify camera5");
 			});
