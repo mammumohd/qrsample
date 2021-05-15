@@ -11,75 +11,24 @@ healthcertscope.itinData = [ { from: "Sydney", to: "Singapore", paxData: [ { fli
 
 
 
-       var onCertPaxMount = function() {
-
-        var certpaxscope = this;
-        certpaxscope.fileid = this._props.segindex + " " + this._props.index;
-        certpaxscope.status = this._props.paxstatus;
-        
-
-        $("#fileinput" + this._props.segindex + "" + this._props.index).on("change", function() {
-
-            certpaxscope.showUploadLoader = true;
-                
-            if ($(this)[0].files.length) {
-
-                certpaxscope.fileError = "";
-
-                if ($(this)[0].files[0].size > certpaxscope.filesizelimit) {
-                    certpaxscope.fileError = "1";
-                    certpaxscope.status = "F";
-                } else if (!checkIfFileSupported($(this)[0].files[0])) {
-                    certpaxscope.fileError = "2";
-                    certpaxscope.status = "F";
-                }
-
-                if (certpaxscope.fileError == "") {
-
-                    var formData = new FormData();
-                    formData.append("file", $(this)[0].files[0]);
-                    formData.append("flightID", certpaxscope._props.flightid);
-                    var fileobj = $(this)[0].files[0];                    
+<span class="hc-ico" @click="deleteAddedFile()">
     
-                    $.ajax({
-                        url: "/icheckIN/qrcodeHandler.form",
-                        type: "POST",
-                        data: formData,
-                        method: "POST",
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function(response) {
-                            
-                            setTimeout(function(){
-                                if (response.toLowerCase() == "success") {
-                                    certpaxscope.filename = fileobj.name + " (" + readableBytesText(fileobj.size) + ")";
-                                    certpaxscope.status = "T";
-                                } else {
-                                    certpaxscope.fileError = "3";
-                                    certpaxscope.status = "T";
-                                }
-                                certpaxscope.showUploadLoader = false;
-                              },50);
+    deleteAddedFile: deleteAddedFile
+    
+    /* 
+    ** function- delete added file
+    */
+    var deleteAddedFile = function() {
+        
+        var current_input = $("#fileinput"+this._props.segindex+""+this._props.index);
+        this.status = "F";
 
-                            
-                            //tobe written
-                        },
-                        error: function(jqxhr, textStatus, errThrown) {
-                            //temp error
-                              setTimeout(function(){
-                                certpaxscope.fileError = "3";
-                                certpaxscope.status = "F";
-                                certpaxscope.showUploadLoader = false;
-                              },50);
-                            
-                        }
-                    });
-
-                }
-            } else {
-                certpaxscope.showUploadLoader = false;
-            }
-
-        });
-    };
+        if (this.fileError != "") {
+            this.fileError = "";	
+        }
+        if( current_input.val() != "" ) {
+        	console.log("error");
+            current_input.replaceWith(current_input.val('').clone(true));
+        }
+        
+    }
