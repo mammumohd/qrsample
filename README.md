@@ -7,31 +7,5 @@
     flight level flags 
 ​[4:34 PM] Risto Joseph (Guest)
 
-[
-    {
-                from: "Sydney",
-                to: "Singapore",
-                paxdata: [
-                    {   flightId:"2301DF1D00005D4A",
-                        firstName: "John",
-                        lastName: "Tan",
-                        paxType:"A",
-                        status: "F", // T - success, F -  fail, NA -  not required 
-                        fileName: "",
-                        decoded: null,
-                        certRequired: true,
-                        certPassed: false
-                    },
-                    {   flightId:"2301DF1D00005D4A",
-                        firstName: "Rebecca",
-                        lastName: "Chin",
-                        paxType:"A",
-                        status: "F", // T - success, F -  fail, NA -  not required 
-                        fileName: "",
-                        decoded: null,
-                        certRequired: true,
-                        certPassed: false
-                    }
-                ]
-    }
-]
+healthcertscope.itinData = [ { from: "Sydney", to: "Singapore", paxData: [ { flightId:"2301DF1D00027A77", firstName: "John", lastName: "Tan", paxType:"A", status: "F", fileName: "", decoded: null, certRequired: true, certPassed: false }, { flightId:"2301DF1D00027A77", firstName: "Rebecca", lastName: "Chin", paxType:"A", status: "F",  fileName: "", decoded: null, certRequired: true, certPassed: false } ] } ];
+
