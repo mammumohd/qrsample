@@ -10,25 +10,82 @@
 healthcertscope.itinData = [ { from: "Sydney", to: "Singapore", paxData: [ { flightId:"2301DF1D00027A77", firstName: "John", lastName: "Tan", paxType:"A", status: "F", fileName: "", decoded: null, certRequired: true, certPassed: false }, { flightId:"2301DF1D00027A77", firstName: "Rebecca", lastName: "Chin", paxType:"A", status: "F",  fileName: "", decoded: null, certRequired: true, certPassed: false } ] } ];
 
 
-
-<span class="hc-ico" @click="deleteAddedFile()">
-    
-    deleteAddedFile: deleteAddedFile
-    
-    /* 
-    ** function- delete added file
-    */
-    var deleteAddedFile = function() {
-        
-        var current_input = $("#fileinput"+this._props.segindex+""+this._props.index);
-        this.status = "F";
-
-        if (this.fileError != "") {
-            this.fileError = "";	
+ 1. Change for taking auto fightids 
+ 2.  as
+  /* 
+	** function- to enable and  disable submit verification button
+	*/
+    var changeVerifyBtn = function(count) {
+        this.docCount += count;
+        if(this.docCount > 0){
+            this.disablesubmit = false;
+        }else{
+            this.disablesubmit = true;
         }
-        if( current_input.val() != "" ) {
-        	console.log("error");
+    }
+
+3 
+var getHealthCertData = function() {
+        return {
+            itinData: [],
+            docCount:0,
+            disablesubmit: true
+        }
+    };
+    
+
+
+4 
+
+
+changeVerifyBtn: changeVerifyBtn
+
+
+5, 
+
+paxlength: Number,
+                paxstatus: String,
+                changeBtn: Function
+                
+                
+                
+6, 
+
+certpaxscope.filename = fileobj.name + " (" + readableBytesText(fileobj.size) + ")";
+                                    certpaxscope.status = "T";
+                                    certpaxscope._props.changeBtn(1);
+7,
+var deleteAddedFile = function() {
+        var current_input = $("#fileinput" + this._props.segindex + "" + this._props.index);
+        this.status = "F";
+        if (this.fileError != "") {
+            this.fileError = "";
+        }
+        if (current_input.val() != "") {
             current_input.replaceWith(current_input.val('').clone(true));
         }
+        this._props.changeBtn(-1);
         
-    }
+        
+8
+
+<cert-pax
+				v-for="(pax,pindex) in itin.paxData"
+				:key="'paxi'+pindex"
+				:index= "pindex"
+				:segindex="itindex"
+				:flightid = "pax.flightId"
+				:firstname = "pax.firstName"
+				:lastname = "pax.lastName"
+				:paxType = "pax.paxType"
+				:paxlength = "itin.paxData.length"
+				:paxstatus = "pax.status"
+				:changeBtn = "changeVerifyBtn"
+			>
+			</cert-pax>
+                                    
+                                    
+    
+    
+    
+    
