@@ -8,10 +8,13 @@
 ​[4:34 PM] Risto Joseph (Guest)
 
 
-1.  clear  -> /qrcodeDelete.form
-2.  S case
-3.  all success change btn 
-                          
+var fData = new FormData();
+        fData.append("flightID", this._props.flightid);
+        
+        $.ajax({
+            url: "/icheckIN/qrcodeDelete.form",
+            type: "POST",
+            data: fData,
     
     
     
