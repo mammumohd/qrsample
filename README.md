@@ -12,6 +12,9 @@
 
     min-width: 768px!important;
 
+# qrsample
+
+
     width
     .scan-code-box .scantext {
     font-size: 14px;
@@ -22,6 +25,9 @@
     box-sizing: border-box!important;
     width: 65%;
 }
+
+# qrsample
+
 
 added padding ,  removed  borde radius
 .scan-btn {
@@ -40,6 +46,10 @@ added padding ,  removed  borde radius
     box-sizing: border-box!important
 }
 
+# qrsample
+
+
+
 added  border -radius 
 .scan-code-box.error .scan-btn{
     display: inline-block;
@@ -47,7 +57,7 @@ added  border -radius
     border-radius: 3px;
 }
 
-
+# qrsample
 
 .scan-code-box.error{
     width: 95%;
