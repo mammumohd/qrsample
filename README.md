@@ -8,65 +8,43 @@
 ​[4:34 PM] Risto Joseph (Guest)
 
 
-var fData = new FormData();
-        fData.append("flightID", this._props.flightid);
-        
-        $.ajax({
-            url: "/icheckIN/qrcodeDelete.form",
-            type: "POST",
-            data: fData,
-    
- /* 
-    ** function- called after successfull scanning
-    */
-    function onScanSuccess(qrCodeMessage) {
+//css
 
-        setTimeout(function(){
+.scan-code-box.error{
+    width: 90%;
+    margin-top: 30px;
+    background-color: #fff;
+    text-align: right;
+    padding: 0;
+    box-sizing: border-box!important;
+}
 
-            if($$this.activeCamPax.scandata ==""){
+.scan-code-box.error .scantext {
+    display: block;
+    text-align: justify;
+}
 
-                $$this.activeCamPax.scandata = qrCodeMessage;
-                $$this.activeCamPax.showUploadLoader = true;
-                $$this.activeCamPax.fileError = "";
-    
-                var formData = new FormData();
-                formData.append("qrCode", qrCodeMessage);
-                formData.append("flightID", $$this.activeCamPax._props.flightid);
-    
-                $.ajax({
-                    url: "/icheckIN/qrcodeScan.form",
-                    type: "POST",
-                    data: formData,
-                    method: "POST",
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-    
-                        if (response.toLowerCase() == "success" || response.toLowerCase() == "s") {
-                            $$this.activeCamPax.status = "T";
-                            $$this.activeCamPax._props.changeBtn(1);
-                        } else {
-                            $$this.activeCamPax.fileError = "3";
-                            $$this.activeCamPax.status = "F";
-                        }
-                        $$this.activeCamPax.showUploadLoader = false;
-                        closeScan();
-    
-                    },
-                    error: function(jqxhr, textStatus, errThrown) {
-    
-                            $$this.activeCamPax.fileError = "3";
-                            $$this.activeCamPax.status = "F";
-                            $$this.activeCamPax.showUploadLoader = false;
-                            closeScan();
-    
-                    }
-                });
-    
-            }
+.scan-code-box.error .scan-btn{
+    display: inline-block;
+    margin: 20px 0px 0px 0px;
+}
 
-        },100);
-    }    
+
+//js in accessCamera
+
+$$this.activeCamPax.scanerror = true;
+
+<div class="scan-code-title" v-if="!isCamEnableError()">Scan QR code</div>
+
+div class="scan-code-box error" v-if="isCamEnableError()">
+							<p class="scantext">No QR code detected. Try again. if the problem persists, you may proceed to the airport check-in counter for assistance</p>
+							<button type="button" @click="closeScan()" class="scan-btn" >okay</button>
+						</div>
+
+
+
+
+
+
     
     
