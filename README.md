@@ -7,7 +7,6 @@
     flight level flags 
 ​[4:34 PM] Risto Joseph (Guest)
 
+<div class="modal-body" :class="[ ( isCamDisable() || isCamEnable() ) ? 'normalwidth' : 'errorwidth' ]">
 
-https://singaporeair.invisionapp.com/share/XG10UM9CZ9EA#/screens/450673339
-
-https://singaporeair.invisionapp.com/share/C2110U6ISQZK#/screens/452231246
+    <div class="scan-code-title-sub" v-if="v-if="isCamEnable()" > Align the QR code within the box</div>
