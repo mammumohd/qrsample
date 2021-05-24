@@ -8,12 +8,19 @@
 ​[4:34 PM] Risto Joseph (Guest)
 
 
-.scan-code-box.error {
-        margin-top: 45px;
-    }
 
-    .scan-code-box.error .scan-btn {
-        display: block;
-        width: 100%;
-        margin: 20px 0 0 0;
-    }
+padding  to  10 bottom 
+
+.scan-code-title {
+    font-size: 30px;
+    font-family: "baker-signet-web",serif;
+    color: #00266b;
+    padding: 10px 0 10px 0;
+    box-sizing: border-box!important;
+}
+
+
+font-family: "proxima-nova","Open Sans","Arial","Helvetica",sans-serif!important;
+color: black;
+padding-bottom: 10px;
+box-sizing: border-box!important;
