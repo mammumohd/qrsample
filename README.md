@@ -8,30 +8,12 @@
 ​[4:34 PM] Risto Joseph (Guest)
 
 
-.popup-cam.dynamic-modal .normalwidth {
-    width: 768px !important;
-}
-
-.popup-cam.dynamic-modal .errorwidth {
-    width: 400px !important;
-}
-
-///
-
-
-.popup-cam.dynamic-modal .modal-body {
-        margin: 0!important;
-        padding: 10px!important;
+.scan-code-box.error {
+        margin-top: 45px;
     }
 
-    .popup-cam.dynamic-modal .normalwidth {
-        width: 100% !important;
-    }
-
-    .popup-cam.dynamic-modal .errorwidth {
-        width: 80% !important;
-        margin: 25% 10% 0% 10% !important;
-        height: auto !important;
-        min-height: auto !important;
-        padding-bottom: 30px !important;
+    .scan-code-box.error .scan-btn {
+        display: block;
+        width: 100%;
+        margin: 20px 0 0 0;
     }
