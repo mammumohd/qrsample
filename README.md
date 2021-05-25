@@ -7,6 +7,10 @@
     flight level flags 
 ​[4:34 PM] Risto Joseph (Guest)
 
+   .hc-title-box {
+        padding: 20px
+    }
+
     .hc-title-box .pax-box {
         margin: 0;
         border-bottom: 0;
@@ -19,7 +23,7 @@
         padding: 10px 5px 10px 0px;
     }
 
-    .hc-title-box .pax-qr {
+    .hc-title-box .pax-qr,.hc-px-error{
         display: block;
         width: 50%;
         padding: 10px 0;
@@ -33,7 +37,12 @@
         vertical-align: top;
         text-align: left;   
     }
-
+    
     .hc-title-box .pax-qr.upload,.hc-px-error {
         text-align: left
+    }
+
+
+    .hc-title-box.rightalign {
+        text-align: center
     }
