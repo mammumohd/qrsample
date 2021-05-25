@@ -7,21 +7,26 @@
     flight level flags 
 ​[4:34 PM] Risto Joseph (Guest)
 
+.hc-title-box .pax-name {
+        display: inline-block;
+        width: 45%;
+        padding: 10px 5px 10px 0px;
+    }
 
+    .hc-title-box .pax-qr {
+        display: block;
+        width: 50%;
+        padding: 10px 0;
+        margin-left: 45%;
+    }
 
-padding  to  10 bottom 
+    .hc-title-box .pax-qr.qr, .hc-title-box .pax-qr.uploader, .hc-title-box .pax-qr.na,.hc-title-box .pax-qr.success{
+        display: inline-block;
+        width: 50%;
+        margin-left:0;
+        vertical-align: top;   
+    }
 
-.scan-code-title {
-    font-size: 30px;
-    font-family: "baker-signet-web",serif;
-    color: #00266b;
-    padding: 10px 0 10px 0;
-    box-sizing: border-box!important;
-}
-
-//scan-code-title-sub
-
-font-family: "proxima-nova","Open Sans","Arial","Helvetica",sans-serif!important;
-color: black;
-padding-bottom: 10px;
-box-sizing: border-box!important;
+    .hc-title-box .pax-qr.qr,.hc-title-box .pax-qr.upload,.hc-title-box .pax-qr.na,.hc-title-box .pax-qr.success,.hc-px-error {
+        text-align: left
+    }
