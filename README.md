@@ -46,3 +46,5 @@
     .hc-title-box.rightalign {
         text-align: center
     }
+    
+    
