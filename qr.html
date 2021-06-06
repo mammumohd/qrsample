@@ -12,11 +12,15 @@
 </style>
 </head>
 <body>
-	<div id="radio" style="width: 200px"></div>
-	<div id="reader" style="width: 200px; background-color: black; margin: auto;"></div>
+<!-- 	<div id="radio" style="width: 200px"></div>
+	<div id="reader" style="width: 200px; background-color: black; margin: auto;"></div> -->
+	<script>
+		var layoutEngine=function(){var e,i=document.documentElement,n=i.style,o=" vendor-",r="edge",t="ie",s="khtml",d="mozilla",l="opera",w="webkit",v=" browser-",a="android",u="chrome",c="safari",m=c+"-ios",b="wiiu",p=o;if("msScrollLimit"in n||"behavior"in n)"msTextSizeAdjust"in n&&!("msFlex"in n)?(p+=r,e={vendor:r},"objectFit"in n||(p+=" vendor-edge-old"),support_color_unset=!1,window.CSS&&(support_color_unset=window.CSS.supports("color","unset")),"msImeAlign"in n&&"webkitTextStroke"in n&&!("objectFit"in n)?(p+=" vendor-edge--15",e.version=15):support_color_unset||"textStroke"in n||"textFill"in n||"objectFit"in n?!support_color_unset||"textStroke"in n||"textFill"in n||"objectFit"in n||(p+=" vendor-edge--13-14",e.version=1314):(p+=" vendor-edge--12",e.version=12)):(p+=t+o+t,e={vendor:t},"msImeAlign"in n?(p+="-11",e.version=11):"msUserSelect"in n?(p+="-10",e.version=10):"fill"in n?(p+="-9",e.version=9):"widows"in n?(p+="-8",e.version=8):(p+="-7",e.version=7));else if("WebkitAppearance"in n){p+=w;var f=navigator.userAgent;e={vendor:w},window.chrome||0<=f.indexOf("OPR")||0<=f.indexOf("wv")?(p+=v+u,e.browser=u):"webkitDashboardRegion"in n?(p+=v+c,e.browser=c):"webkitOverflowScrolling"in n?(p+=v+m,e.browser=m):0<=f.indexOf("Android")?(p+=v+a,e.browser=a):window.wiiu&&(p+=v+b,e.browser=b)}else if("MozAppearance"in n)p+=d,e={vendor:d};else if("OLink"in n||window.opera)p+=l,e={vendor:l},"OMiniFold"in n&&(p+="-mini",e.browser="mini");else{if(!("KhtmlUserInput"in n))return!1;p+=s,e={vendor:s}}return i.className+=p,e}();
+		alert(layoutEngine);
+	</script>	
 </body>
 </html>
-<script>
+<!-- <script>
 
 	const html5QrCode = new Html5Qrcode("reader", false);
 
@@ -87,4 +91,4 @@
 		html5QrCode.stop();
 	}
   
-</script>
+</script> -->
