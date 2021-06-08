@@ -9,46 +9,57 @@
         <xsl:variable name="clear_X" select="'X'"/>
 
         <xsl:choose>
-            <xsl:when test="$variantType = 'online-check-in'">
-                <div class="mobileCheckIn-section filterBoxSection">
-                    <div class="boarding-pass">
-                        <h2 class="checkin-types-head pass-head"></h2>
-                        <p class="pass-desc checkin-desc"></p>
-                        <div class="select-box-parent">
-                            <div class="select-box">
-                                <span class="arrowdown"></span>
-                                <span class="float-text hideitem">
-
-                                </span>
-                                <span class="clear-text hideitem">
-                                  
-                                </span>
-                                <input type="text" class="citytext element" name="dropdownbox-1">
-                                    <xsl:attribute name="value"></xsl:attribute>
-                                    <xsl:attribute name="placeholder"></xsl:attribute>
-                                </input>
+            <xsl:when test="$variantType = 'counter-check-in'">
+                <div class="airportcheckin-section mobileCheckIn-section grey-mob section2">
+                    <div class="airport-checkin-section-top">
+                        <xsl:value-of select="/online_boardingpass/common_description" disable-output-escaping="yes" />
+                    </div>
+                    <div class="filterBoxSection">
+                        <div class="boarding-pass">
+                            <h2 class="checkin-types-head pass-head">
+                             
+                            </h2>
+                            <p class="pass-desc checkin-desc">
+                            
+                            </p>
+                            <div class="select-box-parent">
+                                <div class="select-box">
+                                    <span class="arrowdown"></span>
+                                    <span class="float-text hideitem">
+                                       
+                                    </span>
+                                    <span class="clear-text hideitem">
+                                       
+                                    </span>
+                                    <input type="text" class="citytext element" name="dropdownbox-2">
+                                        <xsl:attribute name="value"></xsl:attribute>
+                                        <xsl:attribute name="placeholder">
+                                           
+                                        </xsl:attribute>
+                                    </input>
+                                </div>
+                                <div class="dropdown-box hideitem third-classname">
+                                    <ul>
+                                        <li class="default hideitem">
+                                            <xsl:attribute name="tabindex">-1</xsl:attribute>
+                                            <xsl:attribute name="disabled">true</xsl:attribute>
+                                             No Result
+                                        </li>
+                                        <xsl:apply-templates mode="dropdown" select="/online_boardingpass/onlineBoardingpassContainer">
+										    <xsl:with-param name="variantTypeDD">
+                                                <xsl:value-of select="$variantType"/>
+										    </xsl:with-param>
+									    </xsl:apply-templates>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="dropdown-box hideitem third-classname">
-                                <ul>
-                                    <li class="default hideitem">
-                                        <xsl:attribute name="tabindex">-1</xsl:attribute>
-                                        <xsl:attribute name="disabled">true</xsl:attribute>
-                                         No Result
-                                    </li>
-                                    <xsl:apply-templates mode="dropdown" select="/online_boardingpass/onlineBoardingpassContainer">
-										<xsl:with-param name="variantTypeDD">
-                                            <xsl:value-of select="$variantType"/>
-										</xsl:with-param>
-									</xsl:apply-templates>
-                                </ul>
+                            <div class="print-pass">
+                                <xsl:apply-templates mode="div" select="/online_boardingpass/onlineBoardingpassContainer">
+                                    <xsl:with-param name="variantTypeDivD">
+                                        <xsl:value-of select="$variantType"/>        
+                                    </xsl:with-param>
+							    </xsl:apply-templates>
                             </div>
-                        </div>
-                        <div class="print-pass">
-                            <xsl:apply-templates mode="div" select="/online_boardingpass/onlineBoardingpassContainer">
-							    <xsl:with-param name="variantTypeDivD">
-                                    <xsl:value-of select="$variantType"/>        
-                                </xsl:with-param>
-							</xsl:apply-templates>
                         </div>
                     </div>
                 </div>
@@ -109,59 +120,48 @@
                 </div>
             </xsl:when>
             <xsl:otherwise>
-                <div class="airportcheckin-section mobileCheckIn-section grey-mob section2">
-                    <div class="airport-checkin-section-top">
-                        <xsl:value-of select="/online_boardingpass/common_description" disable-output-escaping="yes" />
-                    </div>
-                    <div class="filterBoxSection">
-                        <div class="boarding-pass">
-                            <h2 class="checkin-types-head pass-head">
-                             
-                            </h2>
-                            <p class="pass-desc checkin-desc">
-                            
-                            </p>
-                            <div class="select-box-parent">
-                                <div class="select-box">
-                                    <span class="arrowdown"></span>
-                                    <span class="float-text hideitem">
-                                       
-                                    </span>
-                                    <span class="clear-text hideitem">
-                                       
-                                    </span>
-                                    <input type="text" class="citytext element" name="dropdownbox-1">
-                                        <xsl:attribute name="value"></xsl:attribute>
-                                        <xsl:attribute name="placeholder">
-                                           
-                                        </xsl:attribute>
-                                    </input>
-                                </div>
-                                <div class="dropdown-box hideitem third-classname">
-                                    <ul>
-                                        <li class="default hideitem">
-                                            <xsl:attribute name="tabindex">-1</xsl:attribute>
-                                            <xsl:attribute name="disabled">true</xsl:attribute>
-                                             No Result
-                                        </li>
-                                        <xsl:apply-templates mode="dropdown" select="/online_boardingpass/onlineBoardingpassContainer">
-										    <xsl:with-param name="variantTypeDD">
-                                                <xsl:value-of select="$variantType"/>
-										    </xsl:with-param>
-									    </xsl:apply-templates>
-                                    </ul>
-                                </div>
+                <div class="mobileCheckIn-section filterBoxSection">
+                    <div class="boarding-pass">
+                        <h2 class="checkin-types-head pass-head"></h2>
+                        <p class="pass-desc checkin-desc"></p>
+                        <div class="select-box-parent">
+                            <div class="select-box">
+                                <span class="arrowdown"></span>
+                                <span class="float-text hideitem">
+
+                                </span>
+                                <span class="clear-text hideitem">
+                                  
+                                </span>
+                                <input type="text" class="citytext element" name="dropdownbox-1">
+                                    <xsl:attribute name="value"></xsl:attribute>
+                                    <xsl:attribute name="placeholder"></xsl:attribute>
+                                </input>
                             </div>
-                            <div class="print-pass">
-                                <xsl:apply-templates mode="div" select="/online_boardingpass/onlineBoardingpassContainer">
-                                    <xsl:with-param name="variantTypeDivD">
-                                        <xsl:value-of select="$variantType"/>        
-                                    </xsl:with-param>
-							    </xsl:apply-templates>
+                            <div class="dropdown-box hideitem third-classname">
+                                <ul>
+                                    <li class="default hideitem">
+                                        <xsl:attribute name="tabindex">-1</xsl:attribute>
+                                        <xsl:attribute name="disabled">true</xsl:attribute>
+                                         No Result
+                                    </li>
+                                    <xsl:apply-templates mode="dropdown" select="/online_boardingpass/onlineBoardingpassContainer">
+										<xsl:with-param name="variantTypeDD">
+                                            <xsl:value-of select="$variantType"/>
+										</xsl:with-param>
+									</xsl:apply-templates>
+                                </ul>
                             </div>
                         </div>
+                        <div class="print-pass">
+                            <xsl:apply-templates mode="div" select="/online_boardingpass/onlineBoardingpassContainer">
+							    <xsl:with-param name="variantTypeDivD">
+                                    <xsl:value-of select="$variantType"/>        
+                                </xsl:with-param>
+							</xsl:apply-templates>
+                        </div>
                     </div>
-                </div>
+                </div>                
             </xsl:otherwise>
         </xsl:choose>
 
@@ -171,18 +171,17 @@
     <xsl:template  match="/online_boardingpass/onlineBoardingpassContainer" mode="dropdown">
 
 	    <xsl:param name="variantTypeDD" />
-        <xsl:variable name="variantTypeDropDown">
-            <xsl:value-of select="variantTypeDD"/>
-        </xsl:variable>
         <xsl:choose>
-            <xsl:when test="$variantTypeDropDown = 'online-check-in'">
+            <xsl:when test="$variantTypeDD = 'counter-check-in'">
                 <li>
                     <xsl:attribute name="tabindex">-1</xsl:attribute>
-                    <xsl:attribute name="valueitem"><xsl:value-of select="normalize-space(boarding_city)"/></xsl:attribute>
+                    <xsl:attribute name="valueitem">
+                    <xsl:value-of select="normalize-space(boarding_city)"/>
+                    </xsl:attribute>
                     <xsl:value-of select="normalize-space(boarding_city)"/>
                 </li>
             </xsl:when>
-            <xsl:when test="$variantTypeDropDown = 'kiosk-check-in'">
+            <xsl:when test="$variantTypeDD = 'kiosk-check-in'">
                 <li>
                     <xsl:attribute name="tabindex">-1</xsl:attribute>
                     <xsl:attribute name="valueitem">
@@ -194,9 +193,7 @@
 	        <xsl:otherwise>
                 <li>
                     <xsl:attribute name="tabindex">-1</xsl:attribute>
-                    <xsl:attribute name="valueitem">
-                    <xsl:value-of select="normalize-space(boarding_city)"/>
-                    </xsl:attribute>
+                    <xsl:attribute name="valueitem"><xsl:value-of select="normalize-space(boarding_city)"/></xsl:attribute>
                     <xsl:value-of select="normalize-space(boarding_city)"/>
                 </li>
 	        </xsl:otherwise>
@@ -207,11 +204,37 @@
     <xsl:template match="/online_boardingpass/onlineBoardingpassContainer" mode="div">
 
 	    <xsl:param name="variantTypeDivD" />
-        <xsl:variable name="variantTypeDiv">
-            <xsl:value-of select="variantTypeDivD"/>
-        </xsl:variable>
         <xsl:choose>
-            <xsl:when test="$variantTypeDiv = 'online-check-in'">
+            <xsl:when test="$variantTypeDivD= 'counter-check-in'">
+                <div class="printpass-option hidecontent">
+                    <div class="print-list-data">
+                        <xsl:choose>
+                            <xsl:when test="normalize-space(boarding_city) != null">
+                                <xsl:value-of select="normalize-space(counter-description)" disable-output-escaping="yes"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="normalize-space(counter-description)" disable-output-escaping="yes"/>
+                            </xsl:otherwise>   
+                        </xsl:choose>
+                </div>
+                </div>                
+            </xsl:when>
+            <xsl:when test="$variantTypeDivD = 'kiosk-check-in'">
+                <div class="printpass-option hidecontent">
+                    <span class="print-head"></span>
+                    <span class="print-availability">
+                        <xsl:choose>
+                            <xsl:when test="normalize-space(city_description) != null">
+                                <xsl:value-of select="normalize-space(kiosk-description)" disable-output-escaping="yes"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="normalize-space(kiosk-description)" disable-output-escaping="yes"/>
+                            </xsl:otherwise>   
+                        </xsl:choose>
+                    </span>  
+                </div>
+            </xsl:when>
+            <xsl:otherwise>
                 <div class="printpass-option hidecontent">
                     <span class="print-head">
                     </span>
@@ -232,42 +255,14 @@
                             </xsl:otherwise>   
                         </xsl:choose>
                     </span>  
-                </div>
-            </xsl:when>
-            <xsl:when test="$variantTypeDiv = 'kiosk-check-in'">
-                <div class="printpass-option hidecontent">
-                    <span class="print-head"></span>
-                    <span class="print-availability">
-                        <xsl:choose>
-                            <xsl:when test="normalize-space(city_description) != null">
-                                <xsl:value-of select="normalize-space(kiosk-description)" disable-output-escaping="yes"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="normalize-space(kiosk-description)" disable-output-escaping="yes"/>
-                            </xsl:otherwise>   
-                        </xsl:choose>
-                    </span>  
-                </div>
-            </xsl:when>
-            <xsl:otherwise>
-                <div class="printpass-option hidecontent">
-                    <div class="print-list-data">
-                        <xsl:choose>
-                            <xsl:when test="normalize-space(boarding_city) != null">
-                                <xsl:value-of select="normalize-space(counter-description)" disable-output-escaping="yes"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="normalize-space(counter-description)" disable-output-escaping="yes"/>
-                            </xsl:otherwise>   
-                        </xsl:choose>
-                </div>
-                </div>
+                </div>                
             </xsl:otherwise>
         </xsl:choose>
 
 	</xsl:template>
 
 </xsl:stylesheet>
+
 
 
 
