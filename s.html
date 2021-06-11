@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
+
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:include href="http://www.interwoven.com/custom/assets/xslt/global/global.xslt" />
+
     <xsl:template match="/">
         <xsl:variable name="heading_text" select="/Properties/Data/Datum[@Name='Heading Text']"/>
         <xsl:variable name="boarding_text" select="/Properties/Data/Datum[@Name='Boarding Text']"/>
@@ -17,69 +19,80 @@
         <xsl:variable name="variantType">
             <xsl:value-of select="/Properties/Data/Datum[@ID= 'dcr']/DCR/online_boardingpass/variantType" />
         </xsl:variable>
+
         <xsl:variable name="clear_X" select="'X'"/>
+
         <xsl:choose>
             <xsl:when test="$variantType = 'counter-check-in'">
-                <div class="airportcheckin-section mobileCheckIn-section grey-mob section2">
+                <div class="airportcheckin-section mobileCheckIn-section filterBoxSection grey-mob section2">
                    
                     <div class="airport-checkin-section-top">
                         <xsl:value-of select="/Properties/Data/Datum[@ID= 'dcr']/DCR/online_boardingpass/common_description" disable-output-escaping="yes" />
                     </div>
-                    <div class="filterBoxSection">
-                        <div class="boarding-pass">
-                            <h2 class="checkin-types-head pass-head">
-                                <xsl:value-of select="$heading_text"/>
-                            </h2>
-                            <p class="pass-desc checkin-desc">
-                                <xsl:value-of select="$boarding_text"/>
-                            </p>
-                            <div class="select-box-parent">
-                                <div class="select-box">
-                                    <span class="arrowdown"></span>
-                                    <span class="float-text hideitem" >
+
+                    
+                    <div class="boarding-pass">
+
+                        <h2 class="checkin-types-head pass-head">
+                            <xsl:value-of select="$heading_text"/>
+                        </h2>
+
+                        <p class="pass-desc checkin-desc">
+                            <xsl:value-of select="$boarding_text"/>
+                        </p>
+
+                        <div class="select-box-parent">
+                            <div class="select-box">
+                                <span class="arrowdown"></span>
+                                <span class="float-text hideitem" >
+                                    <xsl:value-of select="$city_text"/>
+                                </span>
+                                <span class="clear-text hideitem" >
+                                    <xsl:value-of select="$clear_X"/>
+                                </span>
+                                <input type="text" class="citytext element" name="dropdownbox-2">
+                                    <xsl:attribute name="value"></xsl:attribute>
+                                    <xsl:attribute name="placeholder">
                                         <xsl:value-of select="$city_text"/>
-                                    </span>
-                                    <span class="clear-text hideitem" >
-                                        <xsl:value-of select="$clear_X"/>
-                                    </span>
-                                    <input type="text" class="citytext element" name="dropdownbox-2">
-                                        <xsl:attribute name="value"></xsl:attribute>
-                                        <xsl:attribute name="placeholder">
-                                            <xsl:value-of select="$city_text"/>
-                                        </xsl:attribute>
-                                    </input>
-                                </div>
-                                <div class="dropdown-box hideitem third-classname">
-                                    <ul>
-                                        <li class="default hideitem">
-                                            <xsl:attribute name="tabindex">-1</xsl:attribute>
-                                            <xsl:attribute name="disabled">true</xsl:attribute>
-                                             No Result
-                                        </li>
-                                        <xsl:apply-templates mode="dropdown" select="/Properties/Data/Datum[@ID='dcr']/DCR/online_boardingpass/onlineBoardingpassContainer"/>
-                                    </ul>
-                                </div>
+                                    </xsl:attribute>
+                                </input>
                             </div>
-							<div class="print-pass">
-								<xsl:apply-templates mode="div" select="/Properties/Data/Datum[@ID='dcr']/DCR/online_boardingpass/onlineBoardingpassContainer"/>
+                            <div class="dropdown-box hideitem third-classname">
+                                <ul>
+                                    <li class="default hideitem">
+                                        <xsl:attribute name="tabindex">-1</xsl:attribute>
+                                        <xsl:attribute name="disabled">true</xsl:attribute>
+                                            No Result
+                                    </li>
+                                    <xsl:apply-templates mode="dropdown" select="/Properties/Data/Datum[@ID='dcr']/DCR/online_boardingpass/onlineBoardingpassContainer"/>
+                                </ul>
                             </div>
                         </div>
+
+                        <div class="print-pass">
+                            <xsl:apply-templates mode="div" select="/Properties/Data/Datum[@ID='dcr']/DCR/online_boardingpass/onlineBoardingpassContainer"/>
+                        </div>
+                        
                     </div>
-                     <p class="smalltext large"> 
-                  <xsl:value-of select="/Properties/Data/Datum[@ID= 'dcr']/DCR/online_boardingpass/contact_description" disable-output-escaping="yes" /></p>            
+
+                    <p class="smalltext large"> <xsl:value-of select="/Properties/Data/Datum[@ID= 'dcr']/DCR/online_boardingpass/contact_description" disable-output-escaping="yes" /></p>            
                 </div>
             </xsl:when>
         </xsl:choose>
+
     </xsl:template>
+
+
     <xsl:template  match="/Properties/Data/Datum[@ID='dcr']/DCR/online_boardingpass/onlineBoardingpassContainer" mode="dropdown">
         <li>
             <xsl:attribute name="tabindex">-1</xsl:attribute>
             <xsl:attribute name="valueitem">
                <xsl:value-of select="normalize-space(boarding_city)"/>
             </xsl:attribute>
-      <xsl:value-of select="normalize-space(boarding_city)"/>
+            <xsl:value-of select="normalize-space(boarding_city)"/>
         </li>
     </xsl:template>  
+
      <xsl:template match="/Properties/Data/Datum[@ID='dcr']/DCR/online_boardingpass/onlineBoardingpassContainer" mode="div">
         <div class="printpass-option hidecontent">
             <div class="print-list-data">
@@ -91,7 +104,8 @@
                          <xsl:value-of select="normalize-space(counter-description)" disable-output-escaping="yes"/>
                     </xsl:otherwise>   
                 </xsl:choose>
-              </div>
+            </div>
         </div>
     </xsl:template>
+
 </xsl:stylesheet>
