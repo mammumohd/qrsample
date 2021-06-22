@@ -7,5 +7,4 @@ https://ibm.webex.com/meet/kapmalho
 
 https://ibm.webex.com/meet/arukumar
 
-
-https://teams.microsoft.com/l/meetup-join/19%3ameeting_MjM3OWZhYTEtMjA3YS00YzM3LThiNmUtMTdmODEwOWZiOGE4%40thread.v2/0?context=%7b%22Tid%22%3a%22d56c1b0d-cb31-4a85-93e0-11f8d2a215e0%22%2c%22Oid%22%3a%22bcc0a70b-8226-408f-8981-19228ac5ddfd%22%7d
+https://action.openattestation.com/?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjh-health-test.s3.ap-southeast-1.amazonaws.com%2FSAAICEhealthcert91.json.enc%22%2C%22key%22%3A%22ef3354fec737ab37ba0dd2800509e51e90ecfc6784667a5666427265bebcec95%22%2C%22permittedActions%22%3A%5B%22VIEW%22%2C%22STORE%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fwww.verify.gov.sg%2Fverify%22%7D%7D
