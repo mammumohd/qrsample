@@ -1,3 +1,5 @@
+![SAAICEhealthcert95 json qr](https://user-images.githubusercontent.com/22941080/123048113-182afb00-d40f-11eb-9275-2c7fcdf31e6a.png)
+![SAAICEhealthcert96 json qr](https://user-images.githubusercontent.com/22941080/123048149-237e2680-d40f-11eb-9dd2-809b975df055.png)
 
 https://aws-saaturbosit.singaporeair.com/en_UK/plan-and-book/your-booking/checkin/
 
