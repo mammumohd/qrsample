@@ -14,3 +14,5 @@ https://action.openattestation.com/?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payloa
 
 qrCode: HTML 5 QR Code by mebjas@
 flightID: 2301DF430004441F
+
+height: calc(100vh - calc(100vh - 100%));
