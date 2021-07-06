@@ -17,8 +17,7 @@ flightID: 2301DF430004441F
 
 height: calc(100vh - calc(100vh - 100%));
 
-
-https://teams.microsoft.com/l/meetup-join/19%3ameeting_YThlMGIwMTEtODM3Ni00N2YzLTg3NjMtM2U0Yjg0YTlhZGEx%40thread.v2/0?context=%7b%22Tid%22%3a%22d56c1b0d-cb31-4a85-93e0-11f8d2a215e0%22%2c%22Oid%22%3a%22ee5c3e39-28cc-4efe-8af8-9198b4ca6559%22%7d
+https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDljZjBkYmItOGFkYS00YzE1LTkxMWMtOGRkM2I3YmE4ZDJl%40thread.v2/0?context=%7b%22Tid%22%3a%22d56c1b0d-cb31-4a85-93e0-11f8d2a215e0%22%2c%22Oid%22%3a%22ee5c3e39-28cc-4efe-8af8-9198b4ca6559%22%7d
 
 ![resignation_mail](https://user-images.githubusercontent.com/22941080/124564109-c728f700-de51-11eb-96c8-642edb235000.JPG)
 
