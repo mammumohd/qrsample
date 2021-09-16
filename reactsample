@@ -1,0 +1,97 @@
+import React from "react";
+
+class App extends React.PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+    this.html5QrCode = null;
+    this.addedScript = null;
+    this.addJStoDom(process.env.PUBLIC_URL+'qrJS/html5-qrcode.min.js');
+  }
+
+  componentWillUnmount(){
+    this.removeJSFromDom();
+  }
+
+  addJStoDom(url) {
+    if (!!this.addedScript === false) { 
+      this.addedScript = document.createElement("script");
+      this.addedScript.src = url;
+      this.addedScript.async = true;
+      document.body.appendChild(this.addedScript);  
+    }
+  }
+
+  removeJSFromDom() {
+    document.body.removeChild(this.addedScript);  
+  }
+
+  startCam() {
+
+    this.html5QrCode = new window.Html5Qrcode("reader", false);
+    console.log( this.html5QrCode );
+
+
+    window.Html5Qrcode.getCameras().then(devices => {
+      if (devices && devices.length) {
+        this.start(devices);
+      }else{
+        console.log("Error in identify camera");
+        alert("Error in identify camera1");
+      }
+    }).catch(err => {
+      console.log("Error in identify camera");
+		  alert("Error in identify camera2");
+    });
+  }
+
+
+  start(devices){
+
+		const config = { fps: 10, qrbox: 400 };
+
+		if(devices.length > 1){
+
+			this.html5QrCode.start({ facingMode: { exact: "environment"} }, config, this.onScanSuccess,this.onErrorScan).catch(err => {
+				console.log("Unable to start scanning, error: "+err);
+				alert("Error in identify camera4");
+			});
+			
+		}else{
+
+			this.html5QrCode.start({ deviceId: { exact: devices[0].id} }, config, this.onScanSuccess,this.onErrorScan).catch(err => {
+				console.log("Unable to start scanning, error: "+err);
+				alert("Error in identify camera5");
+			});
+
+		}
+
+	}
+
+	onScanSuccess(qrCodeMessage) {
+		console.log(qrCodeMessage);
+		alert(qrCodeMessage);
+		this.html5QrCode.stop();
+	}
+
+	onErrorScan(err){
+	}
+
+	stopScan(){
+		this.html5QrCode.stop();
+	}
+  
+
+  render() {
+    return(
+      <>
+        <button onClick={this.startCam.bind(this)}>Start</button>
+        <div id={'reader'} ref={this.myRef} style={{width: "600px",backgroundColor: "black", margin: "auto"}}></div>
+      </>
+    );
+  }
+
+}
+
+export default App;
